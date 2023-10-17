@@ -24,5 +24,18 @@ module.exports = (app) => {
     exampleController.exampleFunction
   );
 
+  router.get(
+    "/retrieve-threads",
+    // [exampleMiddleware.exampleMiddleware],
+    // exampleController.callmeWebSocket
+    res.json({ message: "Hello" })
+  );
+
+  router.get(
+    "/retrieve-data-threads",
+    [exampleMiddleware.exampleMiddleware],
+    exampleController.getData
+  );
+
   app.use("/api/data", router);
 };
